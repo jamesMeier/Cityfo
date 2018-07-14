@@ -1,0 +1,95 @@
+body {
+    background-image: url(http://aws-cf.ados.fr/prod/articles/7/0/2/8088702/4762168/big-476216842e.jpg?v=4);
+}
+.bS {
+    align-content: center;
+    text-align: center;
+    
+}
+#footer {
+    position: scroll;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.container {
+    align-content: center;
+    text-align: center;
+}
+.topbuttons {
+    align-content: center;
+    text-align: center;
+       
+}
+#currentWbtn {
+    color: black;
+    font-weight: bold;
+    border: solid;
+    background-color: transparent;
+}
+#cityWbtn {
+    color: black;
+    font-weight: bold;
+    border: solid;
+    background-color: transparent;
+}
+
+#currentWeather {
+    float: left;
+    
+}
+#cityWeather {
+    float: right;
+
+   
+}
+
+#submit {
+    align-content: center;
+    text-align: center;
+}
+#multiBtns {
+    align-content: center;
+    text-align: center;
+    
+}
+#newsBtn {
+    outline-style: solid;
+    background-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+#eventsBtn  {
+    outline-style: solid;
+    background-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+#foodBtn  {
+    outline-style: solid;
+    background-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+.crops 
+{
+    height: 300px;
+    width: auto;
+    overflow: hidden;
+}
+.card-body
+{
+    overflow: none;
+}
+.modal-header, h4, .close {
+    
+    text-align: center;
+    font-size: 30px;
+}
+.modal-footer {
+    background-color: pink;
+}
