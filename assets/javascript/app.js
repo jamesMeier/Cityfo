@@ -1,3 +1,22 @@
+
+function getCityIdZomato(city){
+    var queryUrl = 'https://developers.zomato.com/api/v2.1/cities?q=' + city + '&apikey=ea3fd0e211714b973a2d1cd42ad5d892';
+    $.ajax({
+        url: queryUrl,
+        method: 'GET'
+    }).then(function(response){
+        console.log(response);
+        var result = response.location_suggestions[0].id;
+        var queryFoodUrl = 'https://developers.zomato.com/api/v2.1/cuisines?city_id='+result+'&apikey=ea3fd0e211714b973a2d1cd42ad5d892';
+        $.ajax({
+            url:queryFoodUrl,
+            method: 'GET'
+        }).then(function(resp){
+            console.log(resp);
+        })
+    })
+};
+
 function searchCity(city){
 
     var queryNewsUrl = "https://newsapi.org/v2/everything?q=" + city + "&language=en&pageSize=10&sortBY=relevancy&apiKey=cd225c64e7e444f8ae8da4c61d6720bb";
@@ -36,8 +55,13 @@ function searchCity(city){
 
     }
     });
-    
-
+    var queryEventFulURL= 'https://cors-anywhere.herokuapp.com/http://api.eventful.com/json/events/search?app_key=Q3jJHSfwVkN3HPQf&location='+city;
+    $.ajax({
+        url:queryEventFulURL,
+        method:'GET'
+    }).then(function(response){
+        console.log(response);
+    })
     var queryEventUrl = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ city + "&apikey=68qaNTMZ1pS3QGSRjs5LgY6eUWnDdFw8";
     $.ajax({
         url: queryEventUrl,
@@ -123,14 +147,23 @@ function searchCity(city){
             $('#cardBars').append(cardDiv);
         };
     });
-
+    var queryWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&appid=ce9fe19960370db09d5357b624a4fef9';
+    $.ajax({
+        url: queryWeatherURL,
+        method: 'GET'
+    }).then(function(response){
+        console.log(response);
+        
+    })
     // var queryPhotoURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&" + photoreference + "&key=AIzaSyBXuHCkDlWbDeYf14omiDbuUuoKOJcB1ZE"
 };
 
 $('#submitBtn').on('click',function(event){
     event.preventDefault();
     var inputCity = $('#citySearch').val().trim();
-    searchCity(inputCity);
+    getCityIdZomato(inputCity)
+    searchCity(inputCity)
+    ;
 });
 
 
@@ -141,15 +174,15 @@ $('#cityWbtn').on('click',function() {
     $('#cityWeather').toggle();
 });
 
-$("#newsBtn").click(function() {
+$("#daily").click(function() {
     $("#cardNews").toggle();
 });
-$("#eventsBtn").click(function() {
+$("#weekly").click(function() {
     $("#cardEvent").toggle();
 });
-$("#foodBtn").click(function() {
-    $("#cardFood").toggle();
-});
+// $("#").click(function() {
+//     $("#cardFood").toggle();
+// });
 // $("#myBtn").click(function(){
 //     $("#myModal").modal();
 // });
@@ -192,29 +225,29 @@ var config = {
          
 
         
-function login()
-{
-  function newLoginHappened(user)
-  {
-      if(user) {
-          //user signed in
-          app(user);
-      } else {
-          var provider = new firebase.auth.GoogleAuthProvider();
-          firebase.auth().signInWithRedirect(provider);
-      }
-  }
-  firebase.auth().onAuthStateChanged(newLoginHappened);
-}
-function app()
-{
-    //user.displayName
-    //user.email
-    //user.photoURL
-    //user.uid
-  document.getElementById('clientName').innerHTML= user.displayName;
-}
-window.onload = login;
+// function login()
+// {
+//   function newLoginHappened(user)
+//   {
+//       if(user) {
+//           //user signed in
+//           app(user);
+//       } else {
+//           var provider = new firebase.auth.GoogleAuthProvider();
+//           firebase.auth().signInWithRedirect(provider);
+//       }
+//   }
+//   firebase.auth().onAuthStateChanged(newLoginHappened);
+// }
+// function app()
+// {
+//     //user.displayName
+//     //user.email
+//     //user.photoURL
+//     //user.uid
+//   document.getElementById('clientName').innerHTML= user.displayName;
+// }
+// window.onload = login;
     
 
 
